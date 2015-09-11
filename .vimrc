@@ -16,7 +16,20 @@ nmap ww :w<CR>
 
 "   Save and quit shortcut
 nmap wq :wq<CR>
+
+
+" CUSTOM KEYBINDINGS
 "
+" Insert a quick character after pressing space in normal mode
+:nmap <Space> i_<Esc>r
+
+" Insert space after current line (normal)
+nmap <CR> o<Esc>
+
+" Insert space before current line (normal)
+nmap <S-Enter> O<Esc>
+
+
 " NAVIGATION
 "
 "   Window Navigation
@@ -38,12 +51,35 @@ imap <C-j> <C-o><C-S-j>
 imap <C-h> <C-o><C-S-h>
 imap <C-l> <C-o><C-S-l>
 
+" BELLS
+" turn on visual bell (turn off shrill noise :)
+set vb
 
+
+" BACKSPACE
+set bs=2 
+
+" Fix backspace in windows
+set bs=indent,eol,start 
+
+
+" PATHOGEN
 " Easy plugin installation
+
 execute pathogen#infect()
 
+
+" HELPTAGS
 " Run helptags on every doc/ directory in 'runtimepath'
+
 execute pathogen#helptags()
+
+"  VIM-ADDON-MW-UTILS
+" required by:
+"		snipMate
+
+" call scriptmanager#Activate(["vim-addon-mw-utils"])
+
 
 " Syntax highlighting
 syntax on
@@ -67,19 +103,19 @@ set foldnestmax=2
 set autoindent
 
 " tabstop: number of columns composing a tab
-set tabstop=4
+set tabstop=2
 
 " expandtab/noexpandtab: Tab (i-mode) creates spaces
 set expandtab
 
 " shiftwidth:
-set shiftwidth=4
+set shiftwidth=2
 
 "   softtabstop: number of columns used (i-mode)
 "       if < tabstop && expandtab=null, tabs+spaces
 "       if == tabstop && expandtab=null, tabs
-"       if expandtab!=null, spaces
-set softtabstop=4
+"       if expandtab !=null, spaces
+set softtabstop=2
 
 " TAB SPACING - LANGUAGE SPECIFIC
 " override default tabs based on lang
@@ -205,6 +241,8 @@ let g:indentLine_char = '|'
 
 "   Toggle lines with F3
 nmap <silent> <special> <F3> :IndentLinesToggle<CR>
+
+
 
 
 " BUFFERS
